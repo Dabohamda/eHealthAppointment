@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" >
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>User Profil</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+    <link href="css/signin.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">EHealth</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Accueil</a></li>
+            <li><a href="#about">Astuces & Conseils</a></li>
+         
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compte <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="index.html">Se connecter</a></li>
+                <li><a href="create.html">Créer un compte</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profil</a></li>
+          <li role="presentation"><a href="#appointement" aria-controls="appointement" role="tab" data-toggle="tab">Add Appointement </a></li>
+          <li role="presentation"><a href="#book" aria-controls="book" role="tab" data-toggle="tab">Details Appointment</a></li>
+          <li role="presentation"><a href="#logout" aria-controls="logout" role="tab" data-toggle="tab">Logout</a></li>
+        </ul></br>
+        
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="profile" ng-controller="StoreController as profils">
+            <div class="row">
+            
+            <table class="table" ng-repeat="profil in profils.products">
+              <tr>
+                <td><b>Identifiant Medecin<b></td><td>{{profil.idmedecin}}</td>
+              </tr>
+              <tr>
+                <td><b>Nom<b></td><td>{{profil.nommedecin}}</td>
+              </tr>
+               <tr>
+                <td><b>Prénom</b></td><td>{{profil.prenommedecin}}</td>
+              </tr>
+               <tr>
+                <td><b>Année de naissance</b></td><td>{{profil.datenaissance}}</td>
+              </tr>
+               <tr>
+                <td><b>Sexe</b></td><td>{{profil.sexe}}</td>
+              </tr>
+              <tr>
+                <td><b>Specialite</b></td><td>{{profil.specialitemed}}</td>
+              </tr>
+              <tr>
+                <td><b>Poste</b></td><td>{{profil.postemed}}</td>
+              </tr>
+              <tr>
+                <td><b>Date embauche</b></td><td>{{profil.dateembauche}}</td>
+              </tr>
+              <tr>
+                <td><b>Annee d'experience</b></td><td>{{profil.anneeexper}}</td>
+              </tr>
+               <tr>
+                <td><b>Téléphone</b></td><td>{{profil.tel_patient}}</td>
+              </tr>
+               <tr>
+                <td><b>E-mail</b></td><td>{{profil.emailpatient}}</td>
+            </table>
+              <br>
+              <div class="col-md-4">
+                <button type="button" class="btn btn-primary">UPDATE</button>
+              </div>
+            </div>
+             <br>
+
+          </div>
+          <div role="tabpanel" class="tab-pane" id="appointement">
+            <form ng-controller="demandeController as demande">
+              <div class="form-group">
+                <label for="nom">Type demande</label>
+                <select class="form-control" name="annee" ng-model="type">
+                  <option>Consultation</option>
+                  <option>Intervention</option>
+                  <option>Maternité</option>
+                  <option>Ophtamologie</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="nom">Docteur</label>
+                <select class="form-control" name="annee" ng-model="type">
+                  <option>Moussa Traore</option>
+                  <option>Fatou Sikhe</option>
+                  <option>Hassane Diallo</option>
+                  <option>Abdourahamane Diallo</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="nom">Jour</label>
+                <select class="form-control" name="annee" ng-model="jour">
+                  <option>Lundi</option>
+                  <option>Mardi</option>
+                  <option>Mercredi</option>
+                  <option>Jeudi</option>
+                  <option>Vendredi</option>
+                  <option>Samedi</option>
+                  <option>Dimanche</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="prenom">Heure souhaitée &nbsp;</label>
+                <label class="radio-inline">
+                  <input type="radio" name="sexe" id="inlineRadio1" value="Matin" ng-model="heure"> Matin
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="sexe" id="inlineRadio2" value="Après-Midi" ng-model="heure"> Après-Midi
+                </label>
+              </div>
+             <div class="form-group">
+               <label for="prenom">Description</label>
+               <textarea class="form-control" rows="3" name="adresse" ng-model="description"></textarea>
+             </div>
+              <button type="submit" class="btn btn-default" ng-click="demande.saveData()">Envoyer mon compte</button>
+            </form>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="book" ng-controller="DemandeController as demandes">
+            <div class="col-md-12" ng-repeat="demande in demandes.list">
+            <br>
+              <div class="row">
+                <div class="col-md-3">{{demande.typedem}}</div>
+                <div class="col-md-3">{{demande.jour}}</div>
+                <div class="col-md-3">{{demande.heure}}</div>
+                <div class="col-md-3">{{demande.createdat}}</div>
+              </div>
+            
+
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="doctors">Doctors List</div>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">&#000; Copyright eHealth Academy Aout-September 2016. All rights reserved</p>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>
