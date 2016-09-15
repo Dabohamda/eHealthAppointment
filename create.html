@@ -84,8 +84,8 @@
               </div>
               <div class="form-group">
                 <label for="prenom">Année de naissance</label>
-                <select class="form-control" name="annee" ng-model="annee">
-                  <option>1900</option>
+                <select class="form-control" name="annee" ng-model="annee" ng-controller="yearController">
+                  <option ng-repeat="n in range(1900,2016)">{{n}}</option>
                 </select>
               </div>
               <div class="form-group">

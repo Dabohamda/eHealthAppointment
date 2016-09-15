@@ -9,32 +9,34 @@
 	$sexemedecin = mysql_real_escape_string($data->sexe);
 	$specialitemed = mysql_real_escape_string($data->specialite);
 	$postemed = mysql_real_escape_string($data->poste);
-	$anneeexper = mysql_real_escape_string($data->anneeexper);
+	$anneeexper = mysql_real_escape_string($data->annee);
 	$telmedecin = mysql_real_escape_string($data->telephone);
 	$emailmed = md5( mysql_real_escape_string($data->email));
-	$numero_patient = mysql_real_escape_string(strtoupper(substr($nom_patient, 0, 2).rand(0, 1000).substr($prenom_patient, 0, 3)));
+	$nummedecin = mysql_real_escape_string(strtoupper(substr($nommedecin, 0, 2).rand(0, 1000).substr($prenom_prenommedecin, 0, 3)));
 
 
-	$req = $bdd->prepare('INSERT INTO patients(nom_patient, prenom_patient, date_naissance, sexe, tel_patient, adresse_patient,emailpatient, numero_patient) VALUES(:nom, :prenom, :annee, :sexe, :tel, :adresse, :email, :numero)');
+	$req = $bdd->prepare('INSERT INTO medecins(nommedecin, prenommedecin, datenaissance, sexemedecin, specialitemed, postemed, anneeexper, telmedecin, emailmed, nummedecin) VALUES(:nom, :prenom, :annee, :sexe, :specialite, :poste, :annee, :tel, :email, :numero)');
 	$req->execute(array(
-		'nom' => $nom_patient,
-		'prenom' => $prenom_patient,
-		'annee' => $date_naissance,
-		'sexe' => $sexe,
-		'tel' => $tel_patient,
-		'adresse' => $adresse_patient,
-		'email' => $emailpatient,
-		'numero' => $numero_patient
+		'nom' => $nommedecin,
+		'prenom' => $prenommedecin,
+		'annee' => $datenaissance,
+		'sexe' => $sexemedecin,
+		'specialite' => $specialitemed,
+		'poste' => $postemed,
+		'annee' => $anneeexper,
+		'tel' => $telmedecin,
+		'email' => $emailmed,
+		'numero' => $nummedecin
 	));
 
 	// User authentification account creation 
 
 	$requser = $bdd->prepare('INSERT INTO utilisateurs(username, password, idroles, idtypeuser) VALUES(:username, :password, :role, :type)');
 	$requser->execute(array(
-		'username' => $emailpatient,
+		'username' => $emailmed,
 		'password' => $password,
-		'role' => 'client',
-		'type' => 'patient',
+		'role' => 'agent',
+		'type' => 'medecin',
 	));
 
 ?>
