@@ -1,0 +1,23 @@
+{
+  "name": "ehealth",
+  "version": "1.0.0",
+  "description": "This project is a web application based on the online Make Appointment to the Doctors. If the doctors received the resquest Appointment, he can approuve or report and he can give to the patients a new appointment.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dabohamda/eHealthAppointment.git"
+  },
+  "author": "Dabo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Dabohamda/eHealthAppointment/issues"
+  },
+  "homepage": "https://github.com/Dabohamda/eHealthAppointment#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
+  "devDependencies": {}
+}
