@@ -75,6 +75,16 @@ app.controller('createController',function($scope,$location,$window,$http){
 
   }]);
 
+  app.controller('yearController', function($scope){
+  
+ $scope.range = function(min, max, step){
+      step = step || 1;
+      var input = [];
+      for (var i = min; i <= max; i += step) input.push(i);
+      return input;
+    };
+
+});
 
 
 
