@@ -26,7 +26,7 @@
     "CONTRIBUTING.md",
     "docs",
     "js/tests",
-    "test-infra"
+    "test-infra" 
   ],
   "dependencies": {
     "jquery": "1.9.1 - 3"

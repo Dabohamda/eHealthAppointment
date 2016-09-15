@@ -97,7 +97,7 @@ module.exports = function (grunt) {
         },
         src: '<%= jshint.assets.src %>'
       }
-    },
+    },   
 
     concat: {
       options: {
