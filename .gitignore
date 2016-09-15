@@ -4,3 +4,5 @@
 ._fonts;
 ._css;
 ._.DS_Store;
+bower_components;
+node_module;
